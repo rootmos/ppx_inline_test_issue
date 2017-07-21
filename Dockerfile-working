@@ -10,4 +10,4 @@ COPY _tags .
 COPY myocamlbuild.ml .
 COPY src src
 
-CMD ["bash", "-c", "eval `opam config env` && make test"]
+CMD ["bash", "-c", "eval `opam config env` && ! make test"]

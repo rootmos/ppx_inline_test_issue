@@ -1,3 +1,4 @@
-true: package(core_kernel)
+true: package(core_kernel), package(ppx_inline_test.runtime-lib)
+<**/*>: predicate(custom_ppx)
 <src/*.{ml,mli}>: ppx-driver(ppx_assert+ppx_inline_test -inline-test-lib test)
 <src>: include

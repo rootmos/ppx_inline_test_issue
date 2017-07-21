@@ -9,6 +9,10 @@ test: tests.native
 %.native: $(SRC)
 	$(OCB) $@
 
+.PRECIOUS: %.byte
+%.byte: $(SRC)
+	$(OCB) $@
+
 .PHONY: clean
 clean:
 	$(OCB) -clean
