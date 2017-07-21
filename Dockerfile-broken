@@ -1,0 +1,13 @@
+FROM ocaml/opam:alpine-3.3_ocaml-4.03.0
+
+RUN opam depext conf-m4.1
+RUN opam install "core_kernel=v0.9.0"
+
+RUN sudo mkdir -m a=rwx /build
+WORKDIR /build
+COPY Makefile .
+COPY _tags .
+COPY myocamlbuild.ml .
+COPY src src
+
+CMD ["bash", "-c", "eval `opam config env` && make test"]

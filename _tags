@@ -1,0 +1,4 @@
+true: bin_annot, short_paths, package(core_kernel), package(ppx_driver.ocamlbuild)
+<**/*>: predicate(custom_ppx)
+<src/*.{ml,mli}>: ppx-driver(ppx_inline_test+ppx_assert -inline-test-lib test)
+<src>: include
